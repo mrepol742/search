@@ -1415,11 +1415,7 @@ function a() {
     if (t.trim()) {
         const a = document.getElementById("search").value;
         const aq = a.toLowerCase();
-        if (aq.startsWith("webvium://log")) {
-
-        } else if (aq.startsWith("webvium://logcat")) {
-
-        } else if (aq.startsWith("https://") || aq.startsWith("http://")) {
+        if (aq.startsWith("https://") || aq.startsWith("http://")) {
             if (isValidDomain(aq)) {
                 window.location.href = a;
             } else {
@@ -1432,6 +1428,7 @@ function a() {
                 window.location.href = data + a;
             }
         }
+        Search.saveQuery(a);
     }
 }
 
