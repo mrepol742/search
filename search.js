@@ -447,7 +447,6 @@ var domains = [".aaa",
 ".fidelity",
 ".fido",
 ".film",
-".",
 ".finance",
 ".financial",
 ".fire",
@@ -1402,6 +1401,14 @@ node.addEventListener("keyup", function(event) {
         a();
     }
 });
+
+var su = Search.query().split(":");
+
+for (int i = 0; i < su.length; i++) {
+let opt = document.createElement("option")
+opt.setAttribute("value", atob(su[i]))
+suggestions.appendChild(opt)
+}
 
 function a() {
     let t = search.value;
