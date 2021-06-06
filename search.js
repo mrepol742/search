@@ -1403,11 +1403,12 @@ node.addEventListener("keyup", function(event) {
 });
 
 var su = Search.query().split(":");
-
+if (su != "null") {
 for (let i = 0; i < su.length; i++) {
 let opt = document.createElement("option")
 opt.setAttribute("value", atob(su[i]))
 suggestions.appendChild(opt)
+}
 }
 
 function a() {
