@@ -1404,7 +1404,7 @@ node.addEventListener("keyup", function(event) {
 
 var su = Search.query().split(":");
 
-for (int i = 0; i < su.length; i++) {
+for (let i = 0; i < su.length; i++) {
 let opt = document.createElement("option")
 opt.setAttribute("value", atob(su[i]))
 suggestions.appendChild(opt)
