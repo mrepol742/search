@@ -22,7 +22,7 @@ node.addEventListener("keyup", function(event) {
     }
 });
 
-var su = Search.query().split(":");
+var su = WebviumSearchHelper.query().split(":");
 if (su != "null") {
 for (let i = 0; i < su.length; i++) {
 let opt = document.createElement("option")
@@ -32,23 +32,24 @@ suggestions.appendChild(opt)
 }
 
 function a() {
+"use strict";
     let t = search.value;
     if (t.trim()) {
         const a = document.getElementById("search").value;
         const aq = a.toLowerCase();
         if (aq.startsWith("https://") || aq.startsWith("http://")) {
-            if (Search.isValidDomain(aq)) {
+            if (WebviumSearchHelper.isValidDomain(aq)) {
                 window.location.href = a;
             } else {
-                window.location.href = Search.getSearchEngine() + a;
+                window.location.href = WebviumSearchHelper.getSearchEngine() + a;
             }
         } else {
-            if (Search.isValidDomain(aq)) {
+            if (WebviumSearchHelper.isValidDomain(aq)) {
                 window.location.href = "https://" + a;
             } else {
-                window.location.href = Search.getSearchEngine() + a;
+                window.location.href = WebviumSearchHelper.getSearchEngine() + a;
             }
         }
-        Search.saveQuery(a);
+        WebviumSearchHelper.saveQuery(a);
     }
 }
