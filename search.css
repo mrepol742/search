@@ -88,12 +88,3 @@ input {
     transform: translateX(-1px);
 }
 
-footer {
-    position: absolute;
-    margin-left: auto;
-    margin-right: auto;
-    text-align: center;
-    margin-bottom: 5%;
-    bottom: 0;
-    font-size: 13px;
-}

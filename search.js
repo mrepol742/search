@@ -32,7 +32,6 @@ suggestions.appendChild(opt)
 }
 
 function a() {
-"use strict";
     let t = search.value;
     if (t.trim()) {
         const a = document.getElementById("search").value;
