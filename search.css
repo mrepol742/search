@@ -89,10 +89,3 @@ input {
 #btn:active, #btn:hover {
     color: #4285f4;
 }
-
-.bot {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding-top: 20%;
-}

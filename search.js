@@ -30,12 +30,6 @@ opt.setAttribute("value", atob(su[i]))
 suggestions.appendChild(opt)
 }
 }
-/*//TODO
-for (let i = 0 < 8; i++) {
-    let sug = document.createElement("a")
-    sug.setAttribute("href", atob(su[i]))
-    bot.appendChild(sug)
-}*/ 
 
 function a() {
     let t = search.value;
