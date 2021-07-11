@@ -1,6 +1,6 @@
 <p align="center">
- <img width="100px" src="https://github.com/mrepol742/PROJECT-WEBVIUM/blob/master/app/src/main/res/mipmap-xxxhdpi/c.png" align="center" alt="PROJECT-WEBVIUM" />
- <h2 align="center">mrepol742.github.io/Search</h2>
+ <img width="100px" src="https://mrepol742.github.io/images/search.png" align="center" alt="PROJECT-WEBVIUM" />
+ <h2 align="center">https://mrepol742.github.io/Search</h2>
  <p align="center">Webvium Search</p>
 </p>
 
