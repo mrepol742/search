@@ -41,6 +41,8 @@ a:hover {
 }
 
 body {
+    background-image: url("../images/54327_dfghdgh.jpg");
+    color: #ffffff !important;
     display: flex;
     justify-content: center;
     align-items: center;
