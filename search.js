@@ -15,6 +15,19 @@
 * limitations under the License.
 */
 
+try {
+    if (WebviumThemeHelper.isDarkModeEnabled()) {
+    document.body.background = 'https://source.unsplash.com/480x860?night'
+    document.getElementById("search").style.backgroundColor = "#212121";
+    document.getElementById("btn").style.backgroundColor = "#212121";
+    document.getElementById("search").style.color = "#ffffff";
+} else {
+    document.body.background = 'https://source.unsplash.com/480x860?day'
+}
+} catch (a) {
+
+}
+
 const node = document.getElementById("search");
 node.addEventListener("keyup", function(event) {
     if (event.key === "Enter") {
