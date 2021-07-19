@@ -17,12 +17,12 @@
 
 try {
     if (WebviumThemeHelper.isDarkModeEnabled()) {
-    document.body.background = 'https://source.unsplash.com/480x860?night'
+    document.body.background = 'https://source.unsplash.com/' + WebviumThemeHelper.getQuality() + '?night'
     document.getElementById("search").style.backgroundColor = "#212121";
     document.getElementById("btn").style.backgroundColor = "#212121";
     document.getElementById("search").style.color = "#ffffff";
 } else {
-    document.body.background = 'https://source.unsplash.com/480x860?day'
+    document.body.background = 'https://source.unsplash.com/' + WebviumThemeHelper.getQuality() + '?day'
 }
 } catch (a) {
 
