@@ -26,18 +26,14 @@ try {
     }
     b();
 } catch (a) {
-    document.body.background = 'https://source.unsplash.com/' + WebviumThemeHelper.getQuality() + '?day'
+    document.body.background = 'https://source.unsplash.com/640x480?day'
     b();
 }
 
 const node = document.getElementById("search");
 node.addEventListener("keyup", function(event) {
     if (event.key === "Enter") {
-        try {
-           a();
-        } catch (a) {
-           c();
-        }
+        a();
     }
 });
 
@@ -54,24 +50,28 @@ try {
 }
 
 function a() {
-    let t = search.value;
-    if (t.trim()) {
-        const a = document.getElementById("search").value;
-        const aq = a.toLowerCase();
-        if (aq.startsWith("https://") || aq.startsWith("http://")) {
-            if (WebviumSearchHelper.isValidDomain(aq)) {
+    try {
+        let t = search.value;
+        if (t.trim()) {
+            const a = document.getElementById("search").value;
+            const aq = a.toLowerCase();
+            if (aq.startsWith("https://") || aq.startsWith("http://")) {
+                if (WebviumSearchHelper.isValidDomain(aq)) {
                 window.location.href = a;
+                } else {
+                    window.location.href = WebviumSearchHelper.getSearchEngine() + a;
+                }
             } else {
-                window.location.href = WebviumSearchHelper.getSearchEngine() + a;
+                if (WebviumSearchHelper.isValidDomain(aq)) {
+                    window.location.href = "https://" + a;
+                } else {
+                    window.location.href = WebviumSearchHelper.getSearchEngine() + a;
+                }
             }
-        } else {
-            if (WebviumSearchHelper.isValidDomain(aq)) {
-                window.location.href = "https://" + a;
-            } else {
-                window.location.href = WebviumSearchHelper.getSearchEngine() + a;
-            }
+            WebviumSearchHelper.saveQuery(a);
         }
-        WebviumSearchHelper.saveQuery(a);
+    } catch (qw) {
+        c();
     }
 }
 
