@@ -76,10 +76,10 @@ function a() {
 }
 
 function b() {
-    document.body.backgroundSize = 'cover';
-    document.body.backgroundRepeat = 'no-repeat';
-    document.body.backgroundAttachment = 'fixed';
-    document.body.backgroundPosition = 'center';
+    document.body.style.backgroundSize = 'cover';
+    document.body.style.backgroundRepeat = 'no-repeat';
+    document.body.style.backgroundAttachment = 'fixed';
+    document.body.style.backgroundPosition = 'center';
 }
 
 function c() {
