@@ -17,31 +17,40 @@
 
 try {
     if (WebviumThemeHelper.isDarkModeEnabled()) {
-    document.body.background = 'https://source.unsplash.com/' + WebviumThemeHelper.getQuality() + '?night'
-    document.getElementById("search").style.backgroundColor = "#212121";
-    document.getElementById("btn").style.backgroundColor = "#212121";
-    document.getElementById("search").style.color = "#ffffff";
-} else {
-    document.body.background = 'https://source.unsplash.com/' + WebviumThemeHelper.getQuality() + '?day'
-}
+        document.body.background = 'https://source.unsplash.com/' + WebviumThemeHelper.getQuality() + '?night'
+        document.getElementById("search").style.backgroundColor = "#212121";
+        document.getElementById("btn").style.backgroundColor = "#212121";
+        document.getElementById("search").style.color = "#ffffff";
+    } else {
+        document.body.background = 'https://source.unsplash.com/' + WebviumThemeHelper.getQuality() + '?day'
+    }
+    b();
 } catch (a) {
-
+    document.body.background = 'https://source.unsplash.com/' + WebviumThemeHelper.getQuality() + '?day'
+    b();
 }
 
 const node = document.getElementById("search");
 node.addEventListener("keyup", function(event) {
     if (event.key === "Enter") {
-        a();
+        try {
+           a();
+        } catch (a) {
+           c();
+        }
     }
 });
 
-var su = WebviumSearchHelper.query().split(":");
-if (su != "null") {
-for (let i = 0; i < su.length; i++) {
-let opt = document.createElement("option")
-opt.setAttribute("value", atob(su[i]))
-suggestions.appendChild(opt)
-}
+try {
+    var su = WebviumSearchHelper.query().split(":");
+        if (su != "null") {
+            for (let i = 0; i < su.length; i++) {
+                let opt = document.createElement("option")
+                opt.setAttribute("value", atob(su[i]))
+                suggestions.appendChild(opt)
+            }
+        }
+} catch (a) {
 }
 
 function a() {
@@ -63,5 +72,25 @@ function a() {
             }
         }
         WebviumSearchHelper.saveQuery(a);
+    }
+}
+
+function b() {
+    document.body.backgroundSize = 'cover';
+    document.body.backgroundRepeat = 'no-repeat';
+    document.body.backgroundAttachment = 'fixed';
+    document.body.backgroundPosition = 'center';
+}
+
+function c() {
+    let t = search.value;
+    if (t.trim()) {
+        const a = document.getElementById("search").value;
+        const aq = a.toLowerCase();
+        if (aq.startsWith("https://") || aq.startsWith("http://")) {
+            window.location.href = a;
+        } else {
+            window.location.href = "https://google.com/search?q=" + a;
+        }
     }
 }
