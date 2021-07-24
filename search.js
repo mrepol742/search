@@ -17,16 +17,16 @@
 
 try {
     if (WebviumThemeHelper.isDarkModeEnabled()) {
-        document.body.background = 'https://mrepol742.github.io/images/5f36fe4f05d9821-a-nw-p.webp'
+        document.body.background = 'https://source.unsplash.com/' + WebviumThemeHelper.getQuality() + '?night'
         document.getElementById("search").style.backgroundColor = "#212121";
         document.getElementById("btn").style.backgroundColor = "#212121";
         document.getElementById("search").style.color = "#ffffff";
     } else {
-        document.body.background = 'https://mrepol742.github.io/images/3cbe7e82fb39d43-a-nw-p.webp'
+        document.body.background = 'https://source.unsplash.com/' + WebviumThemeHelper.getQuality() + '?day'
     }
     b();
 } catch (a) {
-    document.body.background = 'https://mrepol742.github.io/images/3cbe7e82fb39d43-a-nw-p.webp'
+    document.body.background = 'https://source.unsplash.com/640x480?day'
     b();
 }
 
