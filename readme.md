@@ -14,5 +14,5 @@
   <img src="https://img.shields.io/github/issues-pr/mrepol742/Search?color=0088ff" />
 </p>
 <p align="center">
-<img src="https://github.com/mrepol742/mrepol742.github.io/blob/main/images/search_download.jfif" width="190">
+<img src="https://github.com/mrepol742/mrepol742.github.io/blob/main/images/search_download.jpg" width="190">
 </p>
