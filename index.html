@@ -30,7 +30,7 @@
     <meta name="description" content="Webvium Search Homepage">
     <meta name="og:description" content="Webvium Search Homepage">
     <meta property="og:image" content="../images/PROJECT-WEBVIUM.webp">
-<meta name="keywords" content="@mrepol742, mrepol742, Webvium, Melvin Jones Repol, PROJECT-WEBVIUM, Webvium Search">
+    <meta name="keywords" content="@mrepol742, mrepol742, Webvium, Melvin Jones Repol, PROJECT-WEBVIUM, Webvium Search">
     <meta name="author" content="Melvin Jones Gallano Repol">
     <meta property="og:title" content="Webvium Search">
     <meta property="og:url" content="https://mrepol742.github.io/Search/index.html">
@@ -43,18 +43,15 @@
     <title>Webvium Search</title>
 </head>
 <body>
-    <div class="container">
-<div class="img-rounded">
-	<img src="../images/webvium_transparent_icon.webp" alt="Webvium" height="150px" width="150px">
-
-</div>
-<div class="input-lg">
-	<input id="search" list="suggestions" placeholder="Enter search terms/url">
-	<input id="btn" type="button" value="| GO" onclick="a()">
-    <datalist id="suggestions">
-</datalist>
-</div>
-</div>
-<script src="search.js"></script>
+    <div id="con">
+        <h1>WEBVIUM</h1>
+        <input list="suggestions" placeholder="Enter your search term..." id="search">
+        <datalist id="suggestions">
+        </datalist>
+        <svg onclick="a()" id="btn" width="16" height="16" fill="#ffffff" iewBox="0 0 16 16">
+            <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+        </svg>
+    </div>
+    <script src="search.js"></script>
 </body>
 </html>
