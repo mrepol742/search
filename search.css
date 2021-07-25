@@ -56,7 +56,7 @@ a:hover {
     border-width: 0px;
     background: linear-gradient(to right, #5f2c82, #49a09d);
     color: #ffffff;
-    width: 80%;
+    width: 75%;
     height: 40px;
     padding-left: 20px;
     padding-right: 40px;
@@ -70,7 +70,7 @@ a:hover {
 #search:focus {
     border-color: #4284f4;
     border-width: 1px;
-    width: 79%;
+    width: 75%;
     animation-duration: 3s;
     animation-fill-mode: both;
     animation-name: zoom;
