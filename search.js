@@ -33,7 +33,38 @@ try {
 const node = document.getElementById("search");
 node.addEventListener("keyup", function(event) {
     if (event.key === "Enter") {
-        a();
+        try {
+            let t = search.value;
+            if (t.trim()) {
+                const a = document.getElementById("search").value;
+                const aq = a.toLowerCase();
+                if (aq.startsWith("https://") || aq.startsWith("http://")) {
+                    if (WebviumSearchHelper.isValidDomain(aq)) {
+                    window.location.href = a;
+                    } else {
+                        window.location.href = WebviumSearchHelper.getSearchEngine() + a;
+                    }
+                } else {
+                    if (WebviumSearchHelper.isValidDomain(aq)) {
+                        window.location.href = "https://" + a;
+                    } else {
+                        window.location.href = WebviumSearchHelper.getSearchEngine() + a;
+                    }
+                }
+                WebviumSearchHelper.saveQuery(a);
+            }
+        } catch (qw) {
+            let t = search.value;
+            if (t.trim()) {
+                const a = document.getElementById("search").value;
+                const aq = a.toLowerCase();
+                if (aq.startsWith("https://") || aq.startsWith("http://")) {
+                    window.location.href = a;
+                } else {
+                    window.location.href = "https://google.com/search?q=" + a;
+                }
+            }
+        }
     }
 });
 
@@ -49,48 +80,9 @@ try {
 } catch (a) {
 }
 
-function a() {
-    try {
-        let t = search.value;
-        if (t.trim()) {
-            const a = document.getElementById("search").value;
-            const aq = a.toLowerCase();
-            if (aq.startsWith("https://") || aq.startsWith("http://")) {
-                if (WebviumSearchHelper.isValidDomain(aq)) {
-                window.location.href = a;
-                } else {
-                    window.location.href = WebviumSearchHelper.getSearchEngine() + a;
-                }
-            } else {
-                if (WebviumSearchHelper.isValidDomain(aq)) {
-                    window.location.href = "https://" + a;
-                } else {
-                    window.location.href = WebviumSearchHelper.getSearchEngine() + a;
-                }
-            }
-            WebviumSearchHelper.saveQuery(a);
-        }
-    } catch (qw) {
-        c();
-    }
-}
-
 function b() {
     document.body.style.backgroundSize = 'cover';
     document.body.style.backgroundRepeat = 'no-repeat';
     document.body.style.backgroundAttachment = 'fixed';
     document.body.style.backgroundPosition = 'center';
-}
-
-function c() {
-    let t = search.value;
-    if (t.trim()) {
-        const a = document.getElementById("search").value;
-        const aq = a.toLowerCase();
-        if (aq.startsWith("https://") || aq.startsWith("http://")) {
-            window.location.href = a;
-        } else {
-            window.location.href = "https://google.com/search?q=" + a;
-        }
-    }
 }

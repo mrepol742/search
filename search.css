@@ -59,8 +59,11 @@ a:hover {
     width: 80%;
     height: 40px;
     padding-left: 20px;
-    padding-right: 40px;
+    padding-right: 20px;
     font-size: 17px;
+    animation-duration: 3s;
+    animation-fill-mode: both;
+    animation-name: zoom;
 }
 
 #search::placeholder {
@@ -70,10 +73,9 @@ a:hover {
 #search:focus {
     border-color: #4284f4;
     border-width: 1px;
-}
-
-#btn {
-    margin-left: -40px;
+    animation-duration: 3s;
+    animation-fill-mode: both;
+    animation-name: zoom1;
 }
 
 @keyframes up {
@@ -82,5 +84,35 @@ a:hover {
     }
     to {
         transform: translate3d(0,0,0);
+    }
+}
+
+@keyframes zoom {
+    0% {
+        transform: scale(1,1);
+    }
+    25% {
+        transform: scale(1.1,1.1);
+    }
+    75% {
+        transform: scale(1.1,1.1);
+    }
+    100% {
+        transform: scale(1,1);
+    }
+}
+
+@keyframes zoom1 {
+    0% {
+        transform: scale(1, 1);
+    }
+    25% {
+        transform: scale(0.9,0.9);
+    }
+    75% {
+        transform: scale(0.9,0.9);
+    }
+    100% {
+        transform: scale(1,1);
     }
 }
