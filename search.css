@@ -40,14 +40,19 @@ a:hover {
     outline: none;
 }
 
+h1 {
+    text-shadow:  0 2px 6px rgba(0, 0, 0, .40);
+}
+
 #con {
-    margin: auto;
-    width: 75%;
-    padding: 10px;
-    margin-top: 30%;
-    animation-duration: 3s;
-    animation-fill-mode: both;
-    animation-name: up;
+  text-align: center;
+  margin-top: 10%;
+}
+
+@media (max-width:1080px) {
+    #con {
+        margin-top: 30%;
+    }
 }
 
 #search {
@@ -57,19 +62,15 @@ a:hover {
     background: linear-gradient(to right, #5f2c82, #49a09d);
     color: #ffffff;
     width: 80%;
-    height: 40px;
-    padding-left: 20px;
-    padding-right: 20px;
-    font-size: 17px;
+    height: 45px;
+    padding-left: 25px;
+    padding-right: 25px;
+    font-size: 15px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, .50);
 }
 
 #search::placeholder {
     color: #f1f1f1;
-}
-
-#search:focus {
-    border-color: #4284f4;
-    border-width: 1px;
 }
 
 .obj {
