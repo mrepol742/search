@@ -25,7 +25,6 @@
     color: #ffffff;
 }
 
-
 a {
     color: #4285f4;
     text-decoration: none;
@@ -41,12 +40,24 @@ a:hover {
 }
 
 h1 {
-    text-shadow:  0 2px 6px rgba(0, 0, 0, .40);
+    text-shadow: 0 2px 6px rgba(0, 0, 0, .40);
 }
 
+.webvium {
+	margin:1.5rem;
+}
+
+img {
+    transition: transform .3s; 
+}
+img:hover {
+    transform: scale(1.05);
+  }
+
 #con {
-  text-align: center;
-  margin-top: 10%;
+    text-align: center;
+    margin-top: 10%;
+    position:relative;
 }
 
 @media (max-width:1080px) {
@@ -55,17 +66,23 @@ h1 {
     }
 }
 
+@media (max-width:700px) {
+    #search {
+        width: 80% !important;
+    }
+}
+
 #search {
     border-radius: 50px;
     border-style: solid;
     border-width: 0px;
-    background: linear-gradient(to right, #5f2c82, #49a09d);
     color: #ffffff;
-    width: 80%;
+    width: 50%;
     height: 45px;
     padding-left: 25px;
-    padding-right: 25px;
+    padding-right: calc(10vw + 1rem);
     font-size: 15px;
+    z-index: 100;
     box-shadow: 0 2px 6px rgba(0, 0, 0, .50);
 }
 
@@ -74,12 +91,61 @@ h1 {
 }
 
 .obj {
-	opacity:0;
-	transform:translateY(15%);
-	transition:all 1.5s ease;
+    opacity: 0;
+    transform: translateY(15%);
+    transition: all 1.5s ease;
 }
 
 .obj.active {
-	opacity:1;
-	transform:translateY(0);
+    opacity: 1;
+    transform: translateY(0);
+}
+
+#bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    object-fit: cover;
+    height: calc(var(--vh, 1vh) * 100);
+    width: 100vw;
+    object-fit: cover;
+}
+
+#sug {
+	display:none;
+	flex-direction:column;
+	width:calc(80% - 0rem);
+	background:white;
+	margin:1rem 0;
+	border-radius:10px;
+	position:absolute;
+	left:50%;
+	transform:translate(-50%, -5%);
+	padding:0 5px;
+	max-height:calc(var(--sug, 1vh) * 50);
+	overflow-y:scroll;
+}
+
+#sug .sug-item {
+	display:flex;
+	justify-content:flex-start;
+	align-items:center;
+	padding:0.5rem;
+}
+
+#sug .sug-item span {
+	margin:0 0.5rem;
+	font-size:1rem;
+}
+
+#sug .sug-item .text {
+	white-space:nowrap;
+	overflow:hidden;
+	text-overflow:ellipsis;
+}
+
+.webvI {
+    padding: 10px;
 }
