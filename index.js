@@ -20,7 +20,7 @@ function getRoutes() {
             res.end('{error:"Invalid Request Method"}');
             return;
         }
-        if (url == "/" || url == "/index.html") {
+        if (url == "/img" || url == "/img/index.html") {
             if (corsWhitelist.indexOf(req.headers.origin) !== -1) {
                 let data = ress.split("?")[1];
                 let results = [];
@@ -42,7 +42,7 @@ function getRoutes() {
                 res.writeHead(200);
                 res.end('{error:"Undefined Parameters"}');
             }
-        } else if (url == "/img" || url == "/img/index.html") {
+        } else if (url == "/" || url == "/index.html") {
             if (corsWhitelist.indexOf(req.headers.origin) !== -1) {
                 let data = ress.split("?")[1];
                 let results = [];
