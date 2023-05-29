@@ -14,7 +14,7 @@ function getRoutes() {
         let ress = req.url;
         let url = ress.split("?")[0];
         console.log(req.method + " " + req.headers.origin + " " + url);
-        if (req.method != "POST") {
+        if (req.method != "GET") {
             res.setHeader("Content-Type", "text/html");
             res.writeHead(200);
             res.end('{error:"Invalid Request Method"}');
