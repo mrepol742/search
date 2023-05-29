@@ -1,0 +1,28 @@
+{
+    "name": "search",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "private": true,
+    "scripts": {
+        "start": "clear && while [ true ]; do node index.js ; done",
+        "test": "clear && node --inspect index.js",
+        "prettier": "prettier ./ --write"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/mrepol742/search.git"
+    },
+    "author": "Melvin Jones Repol",
+    "license": "SEE LICENSE IN https://github.com/mrepol742/Mrepol742-the-License",
+    "bugs": {
+        "url": "https://github.com/mrepol742/search/issues"
+    },
+    "homepage": "https://github.com/mrepol742/search#readme",
+    "dependencies": {
+        "googlethis": "^1.7.1"
+    },
+    "devDependencies": {
+        "prettier": "^2.8.8"
+    }
+}
