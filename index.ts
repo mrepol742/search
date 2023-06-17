@@ -1,5 +1,5 @@
-const http = require("http");
-const google = require("googlethis");
+import * as http from "http";
+import * as google from "googlethis";
 
 const corsWhitelist = ["https://mrepol742.github.io", "http://0.0.0.0:8000"];
 
@@ -25,7 +25,7 @@ function getRoutes() {
                 let data = ress.split("?")[1];
                 let results = [];
                 try {
-                    const images = await google.image(data, { safe: true, strictSSL: false });
+                    const images = await google.image(data, { safe: true });
                     let i;
                     for (i = 0; i < images.length; i++) {
                         results.push(images[i]);
