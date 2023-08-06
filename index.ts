@@ -1,7 +1,7 @@
 import * as http from "http";
 import * as google from "googlethis";
 
-const corsWhitelist = ["https://mrepol742.github.io", "http://0.0.0.0:8000"];
+const corsWhitelist = ["https://mrepol742.github.io"];
 
 const server = http.createServer(getRoutes());
 
@@ -15,9 +15,8 @@ function getRoutes() {
         let url = ress.split("?")[0];
         console.log(req.method + " " + req.headers.origin + " " + url);
         if (req.method != "GET") {
-            res.setHeader("Content-Type", "text/html");
-            res.writeHead(200);
-            res.end('{error:"Invalid Request Method"}');
+            res.writeHead(301, { Location: "https://mrepol742.github.io/unauthorized" });
+            res.end();
             return;
         }
         if (url == "/img" || url == "/img/index.html") {
@@ -78,9 +77,8 @@ function getRoutes() {
                 res.end('{error:"Undefined Parameters"}');
             }
         } else {
-            res.setHeader("Content-Type", "text/html");
-            res.writeHead(200);
-            res.end('{error:"Invalid Request"}');
+            res.writeHead(301, { Location: "https://mrepol742.github.io/unauthorized" });
+            res.end();
         }
     };
 }
