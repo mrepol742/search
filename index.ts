@@ -14,12 +14,11 @@ function getRoutes() {
         let ress = req.url;
         let url = ress.split("?")[0];
         console.log(req.method + " " + req.headers.origin + " " + url);
-        if (req.method != "GET" && !(corsWhitelist.indexOf(req.headers.origin) !== -1)) {
+        if (req.method != "GET" || !(corsWhitelist.indexOf(req.headers.origin) !== -1)) {
             res.writeHead(301, { Location: "https://mrepol742.github.io/unauthorized" });
             res.end();
-            return;
-        }
-        if (url == "/img" || url == "/img/index.html") {
+        } else {
+            if (url == "/img" || url == "/img/index.html") {
                 let data = ress.split("?")[1];
                 let results = [];
                 try {
@@ -35,7 +34,7 @@ function getRoutes() {
                 } catch (err) {
                     console.log(err);
                 }
-        } else if (url == "/" || url == "/index.html") {
+            } else if (url == "/" || url == "/index.html") {
                 let data = ress.split("?")[1];
                 let results = [];
                 try {
@@ -64,9 +63,10 @@ function getRoutes() {
                         res.end(JSON.stringify(results));
                     } catch (err) {}
                 } catch (err) {}
-        } else {
-            res.writeHead(301, { Location: "https://mrepol742.github.io/404.html" });
-            res.end();
+            } else {
+                res.writeHead(301, { Location: "https://mrepol742.github.io/404.html" });
+                res.end();
+            }
         }
     };
 }
