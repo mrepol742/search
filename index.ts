@@ -37,9 +37,8 @@ function getRoutes() {
                     console.log(err);
                 }
             } else {
-                res.setHeader("Content-Type", "text/html");
-                res.writeHead(200);
-                res.end('{error:"Undefined Parameters"}');
+                res.writeHead(301, { Location: "https://mrepol742.github.io/unauthorized" });
+            res.end();
             }
         } else if (url == "/" || url == "/index.html") {
             if (corsWhitelist.indexOf(req.headers.origin) !== -1) {
@@ -72,9 +71,8 @@ function getRoutes() {
                     } catch (err) {}
                 } catch (err) {}
             } else {
-                res.setHeader("Content-Type", "text/html");
-                res.writeHead(200);
-                res.end('{error:"Undefined Parameters"}');
+                res.writeHead(301, { Location: "https://mrepol742.github.io/unauthorized" });
+            res.end();
             }
         } else {
             res.writeHead(301, { Location: "https://mrepol742.github.io/unauthorized" });
