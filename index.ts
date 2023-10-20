@@ -17,6 +17,7 @@
 
 import * as http from "http";
 import * as google from "googlethis";
+import { Innertube, UniversalCache, Utils } from "youtubei.js";
 
 const corsWhitelist = ["https://mrepol742.github.io"];
 
@@ -32,12 +33,44 @@ function getRoutes() {
         let url = ress.split("?")[0];
         console.log(req.method + " " + req.headers.origin + " " + url);
         if (req.method != "GET" || !(corsWhitelist.indexOf(req.headers.origin) !== -1)) {
-            res.writeHead(301, { Location: "https://mrepol742.github.io/unauthorized" });
+            res.writeHead(301, { Location: "https://mrepol742.github.io/unauthorized?utm_source=mrepol742.repl.co" });
             res.end();
         } else {
-            if (url == "/img" || url == "/img/index.html") {
-                let data = ress.split("?")[1];
-                let results = [];
+            let data = ress.split("?")[1];
+            let results = [];
+            if (url == "/vid" || url == "/vid/index.html") {
+                try {
+                    const yt = await Innertube.create({ cache: new UniversalCache(false), generate_session_locally: true });
+                    const search = await yt.search(data, { type: "video" });
+                    if (search.results) {
+                        res.setHeader("Access-Control-Allow-Origin", req.headers.origin);
+                        res.setHeader("Content-Type", "application/json");
+                        res.writeHead(200);
+                        res.end(JSON.stringify(search.results));
+                    }
+                } catch (err) {
+                    res.setHeader("Access-Control-Allow-Origin", req.headers.origin);
+                    res.setHeader("Content-Type", "application/json");
+                    res.writeHead(500);
+                    res.end('{error: "Internal Server Error", code: 500}');
+                }
+            } else if (url == "/mus" || url == "/mus/index.html") {
+                try {
+                    const yt = await Innertube.create({ cache: new UniversalCache(false), generate_session_locally: true });
+                    const search = await yt.music.search(data, { type: "song" });
+                    if (search.results) {
+                        res.setHeader("Access-Control-Allow-Origin", req.headers.origin);
+                        res.setHeader("Content-Type", "application/json");
+                        res.writeHead(200);
+                        res.end(JSON.stringify(search.results));
+                    }
+                } catch (err) {
+                    res.setHeader("Access-Control-Allow-Origin", req.headers.origin);
+                    res.setHeader("Content-Type", "application/json");
+                    res.writeHead(500);
+                    res.end('{error: "Internal Server Error", code: 500}');
+                }
+            } else if (url == "/img" || url == "/img/index.html") {
                 try {
                     const images = await google.image(data, { safe: true });
                     let i;
@@ -49,11 +82,12 @@ function getRoutes() {
                     res.writeHead(200);
                     res.end(JSON.stringify(results));
                 } catch (err) {
-                    console.log(err);
+                    res.setHeader("Access-Control-Allow-Origin", req.headers.origin);
+                    res.setHeader("Content-Type", "application/json");
+                    res.writeHead(500);
+                    res.end('{error: "Internal Server Error", code: 500}');
                 }
             } else if (url == "/" || url == "/index.html") {
-                let data = ress.split("?")[1];
-                let results = [];
                 try {
                     let response1 = await google.search(data, {
                         page: 0,
@@ -78,11 +112,23 @@ function getRoutes() {
                         res.setHeader("Content-Type", "application/json");
                         res.writeHead(200);
                         res.end(JSON.stringify(results));
-                    } catch (err) {}
-                } catch (err) {}
+                    } catch (err) {
+                        res.setHeader("Access-Control-Allow-Origin", req.headers.origin);
+                        res.setHeader("Content-Type", "application/json");
+                        res.writeHead(500);
+                        res.end('{error: "Internal Server Error", code: 500}');
+                    }
+                } catch (err) {
+                    res.setHeader("Access-Control-Allow-Origin", req.headers.origin);
+                    res.setHeader("Content-Type", "application/json");
+                    res.writeHead(500);
+                    res.end('{error: "Internal Server Error", code: 500}');
+                }
             } else {
-                res.writeHead(301, { Location: "https://mrepol742.github.io/404.html" });
-                res.end();
+                res.setHeader("Access-Control-Allow-Origin", req.headers.origin);
+                res.setHeader("Content-Type", "application/json");
+                res.writeHead(400);
+                res.end('{error: "Bad Request", code: 400}');
             }
         }
     };

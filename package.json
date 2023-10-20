@@ -1,7 +1,7 @@
 {
     "name": "webvium-search",
     "version": "1.0.1",
-    "description": "Backend for Webvium Search Results using googlethis npm package.",
+    "description": "Backend for Webvium Search Results using googlethis & youtubei.js npm package.",
     "main": "index.js",
     "scripts": {
         "start": "clear && while [ true ]; do node index.js ; done",
@@ -20,7 +20,8 @@
     "homepage": "https://github.com/mrepol742/search#readme",
     "dependencies": {
         "@types/node": "^20.3.1",
-        "googlethis": "^1.8.0"
+        "googlethis": "^1.8.0",
+        "youtubei.js": "^5.1.0"
     },
     "devDependencies": {
         "prettier": "^2.8.8"
